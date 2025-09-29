@@ -1,0 +1,74 @@
+body {
+    font-family: 'Inter', sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+
+    background: hsl(228, 100%, 94%); /** Just in case */
+    background-image: linear-gradient(to bottom, #a1b8f5 20%, #ffffff);
+    overflow: hidden;
+    position: relative;
+}
+
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    z-index: -2;
+    filter: blur(100px);
+}
+
+body::before {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(90deg,  #a1c4fd73 20%, #c2e9fb 80%);
+    top: -80px;
+    left: -250px;
+}
+
+body::after {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(90deg, #d4a1fd49 0%, #f3c2fb 100%);
+    bottom: 190px;
+    right: 20px;
+}
+
+.card {
+    width: 220px;
+    height: 220px;
+
+    background: hsla(0, 0%, 100%, 0.7);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Safari compatibility */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 2rem 0 rgba(0, 0, 0, 0.15);
+    border-radius: 4rem;  
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1.2rem;
+    box-sizing: border-box;
+}
+
+.card svg {
+    width: 80px;
+    height: 80px;
+    fill: hsla(0, 0%, 24%, 0.814);
+    margin-bottom: 1rem;
+}
+
+.card p {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 200;
+    color: hsla(0, 0%, 24%, 0.814); /* Mismo color que el SVG */
+}
