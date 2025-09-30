@@ -19,19 +19,19 @@ The general instructions are:
 
 -   Recreate a centered navigation similar to this with hover/active animations changing color and underlining the text.
 -   [Static Solution](https://martinemanuelmaldonado93.github.io/revance-svitla-frontend-challenge/1.%20Navigation%20hover/)
--   [Svelte Solution](./svelte-solutions/navigation-hover)
+-   [Svelte Solution](https://revance-svitla-frontend-challenge.vercel.app/)
 
 ### 2. Gradient background logo
 
 -   Recreate this gradient background with a centered logo.
 -   [Static Solution](https://martinemanuelmaldonado93.github.io/revance-svitla-frontend-challenge/2.%20Gradient%20background%20logo/index.html)
--   [Svelte Solution](./svelte-solutions/gradient-background-logo)
+-   [Svelte Solution](https://revance-svitla-frontend-challenge-o.vercel.app/)
 
 ### 3. Website header
 
 -   Recreate this web design as close as possible. Responsive is a bonus.
 -   [Static Solution](https://martinemanuelmaldonado93.github.io/revance-svitla-frontend-challenge/3.%20Website%20header/index.html)
--   [Svelte Solution](./svelte-solutions/website-header)
+-   [Svelte Solution](https://revance-svitla-frontend-challenge-4.vercel.app/)
 
 ### 4. To do application
 
