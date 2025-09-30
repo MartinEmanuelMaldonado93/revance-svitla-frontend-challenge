@@ -42,12 +42,12 @@ body::after {
     width: 220px;
     height: 220px;
 
-    background: hsla(0, 0%, 100%, 0.7);
+    background: hsla(0, 0%, 100%, 0.9);
 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px); /* Safari compatibility */
     border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 2rem 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px .5rem 0 rgba(0, 0, 0, 0.15);
     border-radius: 4rem;  
     
     display: flex;
