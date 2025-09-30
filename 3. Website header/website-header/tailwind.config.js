@@ -8,7 +8,7 @@ export default {
         sans: ['Poppins', 'sans-serif']
       },
       colors: {
-        background: '#f3efe9',
+        'white-rev': '#f3efe9',
         primary: '#333',
         accent: '#8a8a8a'
       }

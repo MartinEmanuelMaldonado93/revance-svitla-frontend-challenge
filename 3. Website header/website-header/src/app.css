@@ -275,18 +275,6 @@ a {
 
 /** Desktop */
 @media (max-width: 1024px) {
-	.main-container {
-		grid-template-columns: 1fr;
-	}
-
-	.left-column {
-		min-height: 100vh;
-		justify-content: space-between;
-	}
-
-	.right-column {
-		/* padding: 4rem 2rem; */
-	}
 
 	.product-images {
 		display: flex;
