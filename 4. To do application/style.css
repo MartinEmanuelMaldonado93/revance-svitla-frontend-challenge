@@ -1,0 +1,145 @@
+:root {
+    --primary-green: #6bd597;
+    --primary-gray: #9396C5 ;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e2e0ddaa;
+    color: #4f4f4f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x:  hidden;
+}
+
+.todo-app {
+    background-color: #ffffff;
+    width: 380px;
+    max-width: 90%;
+    padding: 30px;
+    padding-bottom: 0;
+    border-radius: .1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+
+}
+
+.app-header {
+    text-align: center;
+    /* border-bottom: 3px solid #e0e0e0; */
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.app-header::after {
+    content: "";
+    display: block;
+    border: 2px solid hsla(300, 2%, 92%, 0.553);
+    position: relative;
+    top: 1.8rem;
+    width: calc(100% + 60px);
+    left: -2rem;
+
+}
+.app-header h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.app-header p {
+    font-size: 1rem;
+    color: var(--primary-gray);
+    margin: 5px 0 0;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: color 0.3s ease;
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-item span {
+    font-size: 16px;
+}
+
+.status-icon {
+    width: 24px;
+    height: 24px;
+    transition: fill 0.3s ease;
+}
+
+.icon-happy {
+    color: var(--primary-green);  
+}
+
+.icon-neutral {
+    color: #bdbdbd;  
+}
+
+
+.task-item.completed span {
+    text-decoration: line-through;
+    color: #bdbdbd;
+}
+
+.add-task-form {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.add-task-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--primary-gray);;
+    color: var(--primary-gray);
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;  
+    margin-bottom: 15px;
+}
+
+.add-task-form input::placeholder {
+    color: var(--primary-gray);;
+}
+
+.add-task-form input:focus {
+    outline: none;
+    border-color: #27ae60;
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+}
+
+.add-task-form button {
+    position: relative;
+    top: 1rem;
+    background-color: var(--primary-green);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 50px;  
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 200, 150, 0.3);
+}
+
+.add-task-form button:hover {
+    background-color: #00b386;
+    transform: translateY(-2px);
+}
