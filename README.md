@@ -36,5 +36,5 @@ The general instructions are:
 ### 4. To do application
 
 -   Recreate this web design as close as possible. Please create a javascript application making the to do application interactive. You are welcome to do a version using your preferred JS framework as well.
--   [Static Solution](https://martinemanuelmaldonado93.github.io/revance-svitla-frontend-challenge/4.%20To%20do%20application/index.html)
+-   [Static Solution](https://martinemanuelmaldonado93.github.io/revance-svitla-frontend-challenge/4.Todo-application/index.html)
 -   [Svelte Solution](https://revance-svitla-frontend-challenge-j.vercel.app/)
