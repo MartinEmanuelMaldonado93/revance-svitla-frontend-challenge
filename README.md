@@ -18,23 +18,23 @@ The general instructions are:
 ### 1. Navigation hover
 
 -   Recreate a centered navigation similar to this with hover/active animations changing color and underlining the text.
--   [Static Solution](https://martinemanuelmaldonado93.github.io/revance-svitla-frontend-challenge/1.%20Navigation%20hover/)
--   [Svelte Solution](https://revance-svitla-frontend-challenge.vercel.app/)
+-   <a href="https://martinemanuelmaldonado93.github.io/revance-svitla-frontend-challenge/1.%20Navigation%20hover/" target="_blank">Static Solution</a>
+-   <a href="https://revance-svitla-frontend-challenge.vercel.app/" target="_blank">Svelte Solution</a>
 
 ### 2. Gradient background logo
 
 -   Recreate this gradient background with a centered logo.
--   [Static Solution](https://martinemanuelmaldonado93.github.io/revance-svitla-frontend-challenge/2.%20Gradient%20background%20logo/index.html)
--   [Svelte Solution](https://revance-svitla-frontend-challenge-o.vercel.app/)
+-   <a href="https://martinemanuelmaldonado93.github.io/revance-svitla-frontend-challenge/2.%20Gradient%20background%20logo/index.html" target="_blank">Static Solution</a>
+-   <a href="https://revance-svitla-frontend-challenge-o.vercel.app/" target="_blank">Svelte Solution</a>
 
 ### 3. Website header
 
 -   Recreate this web design as close as possible. Responsive is a bonus.
--   [Static Solution](https://martinemanuelmaldonado93.github.io/revance-svitla-frontend-challenge/3.%20Website%20header/index.html)
--   [Svelte Solution](https://revance-svitla-frontend-challenge-4.vercel.app/)
+-   <a href="https://martinemanuelmaldonado93.github.io/revance-svitla-frontend-challenge/3.%20Website%20header/index.html" target="_blank">Static Solution</a>
+-   <a href="https://revance-svitla-frontend-challenge-4.vercel.app/" target="_blank">Svelte Solution</a>
 
 ### 4. To do application
 
 -   Recreate this web design as close as possible. Please create a javascript application making the to do application interactive. You are welcome to do a version using your preferred JS framework as well.
--   [Static Solution](https://martinemanuelmaldonado93.github.io/revance-svitla-frontend-challenge/4.Todo-application/index.html)
--   [Svelte Solution](https://revance-svitla-frontend-challenge-j.vercel.app/)
+-   <a href="https://martinemanuelmaldonado93.github.io/revance-svitla-frontend-challenge/4.Todo-application/index.html" target="_blank">Static Solution</a>
+-   <a href="https://revance-svitla-frontend-challenge-j.vercel.app/" target="_blank">Svelte Solution</a>
