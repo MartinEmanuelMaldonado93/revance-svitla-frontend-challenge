@@ -31,10 +31,10 @@ The general instructions are:
 
 -   Recreate this web design as close as possible. Responsive is a bonus.
 -   <a href="https://martinemanuelmaldonado93.github.io/revance-svitla-frontend-challenge/3.%20Website%20header/index.html" target="_blank">Static Solution</a>
--   <a href="https://revance-svitla-frontend-challenge-4.vercel.app/" target="_blank">Svelte Solution</a>
+-   <a href="https://revance-svitla-frontend-challenge-4.vercel.app/" target="_blank">Svelte Solution ✨</a>
 
 ### 4. To do application
 
 -   Recreate this web design as close as possible. Please create a javascript application making the to do application interactive. You are welcome to do a version using your preferred JS framework as well.
 -   <a href="https://martinemanuelmaldonado93.github.io/revance-svitla-frontend-challenge/4.Todo-application/index.html" target="_blank">Static Solution</a>
--   <a href="https://revance-svitla-frontend-challenge-j.vercel.app/" target="_blank">Svelte Solution</a>
+-   <a href="https://revance-svitla-frontend-challenge-j.vercel.app/" target="_blank">Svelte Solution ✨</a>
