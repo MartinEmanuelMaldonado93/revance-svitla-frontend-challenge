@@ -41,11 +41,24 @@ function addTask(event) {
 function createListItem(task) {
 	const taskItem = document.createElement("li");
 	taskItem.classList.add("task-item");
+
+	const deleteBtn = document.createElement("span");
+	deleteBtn.classList.add("delete-btn");
+	deleteBtn.textContent = "x";
+	deleteBtn.title = "Delete task";
+	// deleteBtn.style.opacity = "0";
+	deleteBtn.addEventListener("click", (e) => {
+		e.stopPropagation(); // to not trigger toggleTaskStatus 
+		taskItem.remove();
+	});
+
 	taskItem.innerHTML = `
-            <span>${task.text}</span>
-            ${task.completed ? happyIconSVG : neutralIconSVG}
-        `;
-    task.completed && taskItem.classList.add("completed");
+	<span>${task.text}</span>
+	${task.completed ? happyIconSVG : neutralIconSVG}
+	`;
+	taskItem.prepend(deleteBtn);
+    
+	task.completed && taskItem.classList.add("completed");
 	return taskItem;
 }
 

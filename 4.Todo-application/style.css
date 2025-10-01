@@ -74,7 +74,25 @@ body {
 }
 
 .task-item span {
+    flex-grow: 1;
     font-size: 16px;
+}
+
+/** Delete btn */
+.task-item .delete-btn {
+	position: relative;
+    margin-inline: 1rem;;
+    flex-grow: 0;
+	cursor: pointer;
+	color: #cecccc;
+	font-weight: bold;
+
+    opacity: 0;
+	transition: opacity 0.2s ease;
+}
+
+.task-item:hover .delete-btn {
+	opacity: 1;
 }
 
 .status-icon {
