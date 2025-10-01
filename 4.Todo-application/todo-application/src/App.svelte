@@ -37,9 +37,17 @@
 	<ul class="space-y-4">
 		{#each tasks as task (task.id)}
 			<li
-				class="flex justify-between items-center py-3 border-b border-gray-100"
+				class="group flex justify-between items-center py-3 border-b border-gray-100"
 			>
+				<button
+					class="cursor-pointer opacity-0 mx-4 group-hover:opacity-100 duration-500 transition-opacity text-gray-400"
+					onclick={(e) => {
+						e.stopPropagation();
+						tasks = tasks.filter((t) => t.id !== task.id);
+					}}>x</button
+				>
 				<span
+					class="grow"
 					class:line-through={task.completed}
 					class:text-gray-400={task.completed}
 				>
@@ -47,7 +55,7 @@
 				</span>
 				<button
 					onclick={() => toggleCompleted(task)}
-					class="text-{task.completed
+					class="cursor-pointer text-{task.completed
 						? 'primary-green'
 						: 'gray-300'} hover:text-primary-green transition-colors"
 				>
