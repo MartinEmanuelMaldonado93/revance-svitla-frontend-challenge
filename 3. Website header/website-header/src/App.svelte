@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { fade, crossfade, scale, fly } from "svelte/transition";
 
-	let images = ["/model-optimized.webp", "/model-hero.webp"];
+	let images = [
+		"/model-optimized.webp",
+		"/model-hero.webp",
+		"/mode-hero-1.webp",
+	];
 	let index = 0;
 
 	function nextImage() {
@@ -9,6 +13,15 @@
 	}
 	function prevImage() {
 		index = (index - 1 + images.length) % images.length;
+	}
+	// parallax effect
+	let x = 0;
+	let y = 0;
+	let maxMove = 20;  
+
+	function reset() {
+		x = 0;
+		y = 0;
 	}
 </script>
 
@@ -95,7 +108,7 @@
 			{#each images as img, i (i)}
 				{#if i === index}
 					<img
-						in:fly={{ x: 0, y: 100, duration: 300 }}
+						in:scale={{ duration: 500, start: 0.8, opacity: 0.5 }}
 						out:fade={{ duration: 50 }}
 						src={img}
 						alt="Detailed view of the white dress"
@@ -124,7 +137,25 @@
 		>
 			<source srcset="model-1.avif" type="image/avif" />
 			<source srcset="model-1.webp" type="image/webp" />
-			<img src="model-1.avif" alt="Detailed view of the white dress" />
+			<!-- svelte-ignore a11y_mouse_events_have_key_events -->
+			<img
+				onmouseover={(event) => {
+					const rect = event.currentTarget.getBoundingClientRect();
+					const offsetX = event.clientX - rect.left;
+					const offsetY = event.clientY - rect.top;
+
+					// Normalize
+					const moveX = (offsetX / rect.width) * 2 - 1;
+					const moveY = (offsetY / rect.height) * 2 - 1;
+
+					//  apply limit
+					x = moveX * maxMove;
+					y = moveY * maxMove;
+				}}
+				onmouseleave={reset}
+				src="model-1.webp"
+				alt="Detailed view of the white dress"
+			/>
 		</picture>
 		<img
 			src="/model-2.avif"
