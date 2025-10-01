@@ -73,11 +73,15 @@
 		</footer>
 
 		<div class="absolute inset-0 -z-10 w-full h-full">
-			<img
-				src="/model-optimized.webp"
-				alt="Modelo con un vestido blanco de cuello desbocado"
-				class="w-full h-full object-cover object-[30%_20%]"
-			/>
+			<picture>
+				<source srcset="/model-optimized.avif" type="image/avif" />
+				<source srcset="/model-optimized.jpg" type="image/jpg" />
+				<img
+					src="/model-optimized.webp"
+					alt="Detailed view of the white dress"
+					class="w-full h-full object-cover object-[30%_20%]"
+				/>
+			</picture>
 		</div>
 	</div>
 
@@ -85,14 +89,18 @@
 		id="right-col"
 		class="grid grid-cols-[auto_1fr_auto] bg-[#f3efe9] grid-rows-[auto_auto_1fr_50px] gap-4 p-4"
 	>
-		<img
-			src="model-1.avif"
-			alt="Vista detallada del vestido blanco"
-			class="col-start-3 row-start-2 -ml-[45%] translate-y-[30%] max-w-[200px] shadow-lg shadow-black/10"
-		/>
+		<picture>
+			<source srcset="model-1.avif" type="image/avif" />
+			<source srcset="model-1.webp" type="image/webp" />
+			<img
+				src="model-1.jpg"
+				alt="Detailed view of the white dress"
+				class="col-start-3 row-start-2 -ml-[45%] translate-y-[30%] max-w-[200px] shadow-lg shadow-black/10"
+			/>
+		</picture>
 		<img
 			src="/model-2.avif"
-			alt="Vista completa del vestido blanco"
+			alt="Full view of the white dress"
 			class="col-start-1 self-end row-start-3 max-w-[160px] mt-4 shadow-lg shadow-black/10"
 		/>
 
