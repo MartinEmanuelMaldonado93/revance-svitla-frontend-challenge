@@ -1,4 +1,15 @@
 <script lang="ts">
+	import { fade, crossfade, scale, fly } from "svelte/transition";
+
+	let images = ["/model-optimized.webp", "/model-hero.webp"];
+	let index = 0;
+
+	function nextImage() {
+		index = (index + 1) % images.length;
+	}
+	function prevImage() {
+		index = (index - 1 + images.length) % images.length;
+	}
 </script>
 
 <div
@@ -51,9 +62,17 @@
 				<p>2026</p>
 			</div>
 			<div class="flex items-center gap-4 text-xs uppercase">
-				<a href="/">Next</a>
+				<button
+					onclick={nextImage}
+					class="cursor-pointer text-white/60 hover:text-white"
+					>Next</button
+				>
 				<div class="flex-grow border-b-2 border-white/70 w-20"></div>
-				<a href="/">Previous</a>
+				<button
+					onclick={prevImage}
+					class="cursor-pointer text-white/60 hover:text-white"
+					>Previous</button
+				>
 			</div>
 		</div>
 
@@ -73,7 +92,18 @@
 		</footer>
 
 		<div class="absolute inset-0 -z-10 w-full h-full">
-			<picture>
+			{#each images as img, i (i)}
+				{#if i === index}
+					<img
+						in:fly={{ x: 0, y: 100, duration: 300 }}
+						out:fade={{ duration: 50 }}
+						src={img}
+						alt="Detailed view of the white dress"
+						class="w-full h-full object-cover object-[30%_20%]"
+					/>
+				{/if}
+			{/each}
+			<!-- <picture>
 				<source srcset="/model-optimized.avif" type="image/avif" />
 				<source srcset="/model-optimized.jpg" type="image/jpg" />
 				<img
@@ -81,13 +111,13 @@
 					alt="Detailed view of the white dress"
 					class="w-full h-full object-cover object-[30%_20%]"
 				/>
-			</picture>
+			</picture> -->
 		</div>
 	</div>
 
 	<div
 		id="right-col"
-		class="grid grid-cols-[auto_1fr_auto] bg-[#f3efe9] grid-rows-[auto_auto_1fr_50px] gap-4 p-4"
+		class="grid grid-cols-[auto_1fr_auto] bg-white-rev grid-rows-[auto_auto_1fr_50px] gap-4 p-4"
 	>
 		<picture
 			class="col-start-3 row-start-2 -ml-[45%] translate-y-[30%] max-w-[200px] shadow-lg shadow-black/10"
