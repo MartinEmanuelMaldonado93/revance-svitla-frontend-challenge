@@ -1,47 +1,78 @@
 <script lang="ts">
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
+	import HeaderDate from "./lib/HeaderDate.svelte";
+	import { happyIconSVG, neutralIconSVG, tasksFromDB } from "./resources";
+
+	type Task = {
+		id: number;
+		text: string;
+		completed: boolean;
+	};
+
+	let tasks = $state<Task[]>(tasksFromDB);
+	let newTask = $state<Task>();
+	let newTaskText = $state("");
+
+	function toggleCompleted(task: Task) {
+		task.completed = !task.completed;
+	}
+	function onSubmitTask(event: Event) {
+		event.preventDefault();
+		if (newTaskText.trim() === "") return;
+
+		const newTask: Task = {
+			id: Date.now(),
+			text: newTaskText,
+			completed: false,
+		};
+
+		tasks.push(newTask);
+
+		newTaskText = "";
+	}
 </script>
 
-<main>
-  <div>
-    <a href="https://vite.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-  <h1>Vite + Svelte</h1>
+<main class="bg-white w-[380px] max-w-[90%] p-8 pb-0 shadow-lg rounded-sm">
+	<HeaderDate />
 
-  <div class="card">
-    <Counter />
-  </div>
+	<ul class="space-y-4">
+		{#each tasks as task (task.id)}
+			<li
+				class="flex justify-between items-center py-3 border-b border-gray-100"
+			>
+				<span
+					class:line-through={task.completed}
+					class:text-gray-400={task.completed}
+				>
+					{task.text}
+				</span>
+				<button
+					onclick={() => toggleCompleted(task)}
+					class="text-{task.completed
+						? 'primary-green'
+						: 'gray-300'} hover:text-primary-green transition-colors"
+				>
+					{#if task.completed}
+						{@html happyIconSVG}
+					{:else}
+						{@html neutralIconSVG}
+					{/if}
+				</button>
+			</li>
+		{/each}
+	</ul>
 
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
+	<form class="mt-6 text-center" onsubmit={onSubmitTask}>
+		<input
+			bind:value={newTaskText}
+			type="text"
+			placeholder="Add Task"
+			class="w-full p-3 border border-[#9396C5] text-primary-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-transparent transition-all"
+		/>
+		<button
+			type="submit"
+			class="bg-[#24d2a7] relative text-white font-medium px-6 py-2 rounded-full hover:bg-[#00b386] transition-all shadow-lg hover:-translate-y-0.5 mt-4 top-4"
+		>
+			Add
+		</button>
+	</form>
 </main>
-
-<style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  }
-</style>
