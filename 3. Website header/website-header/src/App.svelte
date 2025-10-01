@@ -74,7 +74,7 @@
 
 		<div class="absolute inset-0 -z-10 w-full h-full">
 			<img
-				src="https://images.pexels.com/photos/33692732/pexels-photo-33692732.jpeg"
+				src="/model-optimized.webp"
 				alt="Modelo con un vestido blanco de cuello desbocado"
 				class="w-full h-full object-cover object-[30%_20%]"
 			/>
@@ -86,12 +86,12 @@
 		class="grid grid-cols-[auto_1fr_auto] bg-[#f3efe9] grid-rows-[auto_auto_1fr_50px] gap-4 p-4"
 	>
 		<img
-			src="https://images.pexels.com/photos/33692298/pexels-photo-33692298.jpeg"
+			src="model-1.avif"
 			alt="Vista detallada del vestido blanco"
 			class="col-start-3 row-start-2 -ml-[45%] translate-y-[30%] max-w-[200px] shadow-lg shadow-black/10"
 		/>
 		<img
-			src="https://images.pexels.com/photos/33692267/pexels-photo-33692267.jpeg"
+			src="/model-2.avif"
 			alt="Vista completa del vestido blanco"
 			class="col-start-1 self-end row-start-3 max-w-[160px] mt-4 shadow-lg shadow-black/10"
 		/>
