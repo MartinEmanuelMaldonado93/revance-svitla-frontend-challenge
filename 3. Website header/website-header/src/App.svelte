@@ -2,7 +2,7 @@
 	import { fade, scale } from "svelte/transition";
 	import gsap from "gsap";
 
-	let images = [
+	let staticImages = [
 		"/model-optimized.webp",
 		"/model-hero.webp",
 		"/mode-hero-1.webp",
@@ -10,6 +10,8 @@
 	let index = $state(0);
 
 	$effect(() => {
+		preloadImages(staticImages);
+
 		const images =
 			document.querySelectorAll<HTMLImageElement>(".swipeimage");
 
@@ -58,12 +60,17 @@
 			parent.addEventListener("mouseleave", onMouseLeave);
 		});
 	});
-
+	function preloadImages(imgs: string[]) {
+		imgs.forEach((src) => {
+			const img = new Image();
+			img.src = src;
+		});
+	}
 	function nextImage() {
-		index = (index + 1) % images.length;
+		index = (index + 1) % staticImages.length;
 	}
 	function prevImage() {
-		index = (index - 1 + images.length) % images.length;
+		index = (index - 1 + staticImages.length) % staticImages.length;
 	}
 	// parallax effect
 	let x = 0;
@@ -156,7 +163,7 @@
 		</footer>
 
 		<div class="absolute inset-0 -z-10 w-full h-full">
-			{#each images as img, i (i)}
+			{#each staticImages as img, i (i)}
 				{#if i === index}
 					<img
 						in:scale={{ duration: 500, start: 0.8, opacity: 0.5 }}
