@@ -1,12 +1,63 @@
 <script lang="ts">
-	import { fade, crossfade, scale, fly } from "svelte/transition";
+	import { fade, scale } from "svelte/transition";
+	import gsap from "gsap";
 
 	let images = [
 		"/model-optimized.webp",
 		"/model-hero.webp",
 		"/mode-hero-1.webp",
 	];
-	let index = 0;
+	let index = $state(0);
+
+	$effect(() => {
+		const images =
+			document.querySelectorAll<HTMLImageElement>(".swipeimage");
+
+		images.forEach((img) => {
+			let setX: (x: number) => void, setY: (y: number) => void;
+
+			const parent = img;
+
+			const align = (e: MouseEvent) => {
+				const rect = parent.getBoundingClientRect();
+				const offsetX = e.clientX - (rect.left + rect.width / 2);
+				const offsetY = e.clientY - (rect.top + rect.height / 2);
+
+				setX(offsetX / 10);
+				setY(offsetY / 10);
+			};
+
+			const fade = gsap.to(img, {
+				autoAlpha: 0.8,
+				ease: "power1.out",
+				paused: true,
+			});
+
+			const onMouseEnter = (e: MouseEvent) => {
+				fade.play();
+				const duration = 0.8;
+				setX = gsap.quickTo(img, "x", {
+					duration,
+					ease: "power3.out",
+				});
+				setY = gsap.quickTo(img, "y", {
+					duration,
+					ease: "power3.out",
+				});
+				align(e);
+				parent.addEventListener("mousemove", align);
+			};
+
+			const onMouseLeave = () => {
+				fade.reverse();
+				parent.removeEventListener("mousemove", align);
+				gsap.to(img, { x: 0, y: 0, duration: 1, ease: "power3.out" });
+			};
+
+			parent.addEventListener("mouseenter", onMouseEnter);
+			parent.addEventListener("mouseleave", onMouseLeave);
+		});
+	});
 
 	function nextImage() {
 		index = (index + 1) % images.length;
@@ -17,7 +68,7 @@
 	// parallax effect
 	let x = 0;
 	let y = 0;
-	let maxMove = 20;  
+	let maxMove = 20;
 
 	function reset() {
 		x = 0;
@@ -116,43 +167,22 @@
 					/>
 				{/if}
 			{/each}
-			<!-- <picture>
-				<source srcset="/model-optimized.avif" type="image/avif" />
-				<source srcset="/model-optimized.jpg" type="image/jpg" />
-				<img
-					src="/model-optimized.webp"
-					alt="Detailed view of the white dress"
-					class="w-full h-full object-cover object-[30%_20%]"
-				/>
-			</picture> -->
 		</div>
 	</div>
 
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
+	<!-- svelte-ignore a11y_mouse_events_have_key_events -->
 	<div
 		id="right-col"
 		class="grid grid-cols-[auto_1fr_auto] bg-white-rev grid-rows-[auto_auto_1fr_50px] gap-4 p-4"
 	>
 		<picture
-			class="col-start-3 row-start-2 -ml-[45%] translate-y-[30%] max-w-[200px] shadow-lg shadow-black/10"
+			class="swipeimage col-start-3 row-start-2 -ml-[45%] mt-[30%] translat e-y-[30%] max-w-[200px] shadow-lg shadow-black/10"
 		>
 			<source srcset="model-1.avif" type="image/avif" />
 			<source srcset="model-1.webp" type="image/webp" />
-			<!-- svelte-ignore a11y_mouse_events_have_key_events -->
 			<img
-				onmouseover={(event) => {
-					const rect = event.currentTarget.getBoundingClientRect();
-					const offsetX = event.clientX - rect.left;
-					const offsetY = event.clientY - rect.top;
-
-					// Normalize
-					const moveX = (offsetX / rect.width) * 2 - 1;
-					const moveY = (offsetY / rect.height) * 2 - 1;
-
-					//  apply limit
-					x = moveX * maxMove;
-					y = moveY * maxMove;
-				}}
-				onmouseleave={reset}
+				class=""
 				src="model-1.webp"
 				alt="Detailed view of the white dress"
 			/>
@@ -160,7 +190,7 @@
 		<img
 			src="/model-2.avif"
 			alt="Full view of the white dress"
-			class="col-start-1 self-end row-start-3 max-w-[160px] mt-4 shadow-lg shadow-black/10"
+			class="swipeimage col-start-1 self-end row-start-3 max-w-[160px] mt-4 shadow-lg shadow-black/10"
 		/>
 
 		<div
