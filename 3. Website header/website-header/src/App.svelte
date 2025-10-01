@@ -89,14 +89,12 @@
 		id="right-col"
 		class="grid grid-cols-[auto_1fr_auto] bg-[#f3efe9] grid-rows-[auto_auto_1fr_50px] gap-4 p-4"
 	>
-		<picture>
+		<picture
+			class="col-start-3 row-start-2 -ml-[45%] translate-y-[30%] max-w-[200px] shadow-lg shadow-black/10"
+		>
 			<source srcset="model-1.avif" type="image/avif" />
 			<source srcset="model-1.webp" type="image/webp" />
-			<img
-				src="model-1.jpg"
-				alt="Detailed view of the white dress"
-				class="col-start-3 row-start-2 -ml-[45%] translate-y-[30%] max-w-[200px] shadow-lg shadow-black/10"
-			/>
+			<img src="model-1.avif" alt="Detailed view of the white dress" />
 		</picture>
 		<img
 			src="/model-2.avif"
