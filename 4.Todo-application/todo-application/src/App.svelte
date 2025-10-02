@@ -9,7 +9,6 @@
 	};
 
 	let tasks = $state<Task[]>(tasksFromDB);
-	let newTask = $state<Task>();
 	let newTaskText = $state("");
 
 	function toggleCompleted(task: Task) {
@@ -31,7 +30,7 @@
 	}
 </script>
 
-<main class="bg-white w-[380px] max-w-[90%] p-8 pb-0 shadow-lg rounded-sm">
+<main class="bg-white sm:w-[380px] sm:max-w-[90%] p-8 px-4 pb-0 shadow-lg rounded-sm">
 	<HeaderDate />
 
 	<ul class="space-y-4">
@@ -40,7 +39,7 @@
 				class="group flex justify-between items-center py-3 border-b border-gray-100"
 			>
 				<button
-					class="cursor-pointer opacity-0 mx-4 group-hover:opacity-100 duration-500 transition-opacity text-gray-400"
+					class="cursor-pointer md:opacity-0 ml-0 mr-2 group-hover:opacity-100 duration-500 transition-opacity text-gray-400"
 					onclick={(e) => {
 						e.stopPropagation();
 						tasks = tasks.filter((t) => t.id !== task.id);
@@ -74,11 +73,11 @@
 			bind:value={newTaskText}
 			type="text"
 			placeholder="Add Task"
-			class="w-full p-3 border border-[#9396C5] text-primary-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-transparent transition-all"
+			class="w-full border border-[#9396C5] text-[#9396C5] p-3 text-primary-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-green focus:border-transparent transition-all"
 		/>
 		<button
 			type="submit"
-			class="bg-[#24d2a7] relative text-white font-medium px-6 py-2 rounded-full hover:bg-[#00b386] transition-all shadow-lg hover:-translate-y-0.5 mt-4 top-4"
+			class="bg-[#6bd597] cursor-pointer relative text-white font-medium px-6 py-2 rounded-full hover:bg-[#00b386] transition-all shadow-lg hover:-translate-y-0.5 mt-4 top-4"
 		>
 			Add
 		</button>
