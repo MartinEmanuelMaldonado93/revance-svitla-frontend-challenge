@@ -147,8 +147,8 @@
 			<h1
 				class="font-serif text-[clamp(4rem,10vw,12rem)] leading-[0.9] text-white relative top-12 text-center"
 			>
-				<span class="block">Summer</span>
-				<span class="block">2026</span>
+				<span class="block bg-gradient-to-r from-white from-50% to-white/80 to-50% bg-[length:200%_100%] bg-[position:100%_0] bg-clip-text text-transparent transition-[background-position] duration-500 ease-in-out hover:bg-[position:0_0]">Summer</span>
+				<span class="block  bg-gradient-to-r from-white from-50% to-white/80 to-50% bg-[length:200%_100%] bg-[position:100%_0] bg-clip-text text-transparent transition-[background-position] duration-500 ease-in-out hover:bg-[position:0_0]">2026</span>
 			</h1>
 		</div>
 
@@ -162,8 +162,8 @@
 			{#each staticImages as img, i (i)}
 				{#if i === index}
 					<img
-						in:scale={{ duration: 500, start: 0.8, opacity: 0.5 }}
-						out:fade={{ duration: 50 }}
+						in:scale={{ duration: 500, start: 0.9, opacity: 0.5 }}
+						out:fade={{ duration: 150 }}
 						src={img}
 						alt="Detailed view of the white dress"
 						class="w-full h-full object-cover object-[30%_20%]"
