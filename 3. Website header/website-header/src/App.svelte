@@ -75,24 +75,18 @@
 	// parallax effect
 	let x = 0;
 	let y = 0;
-	let maxMove = 20;
-
-	function reset() {
-		x = 0;
-		y = 0;
-	}
 </script>
 
 <div
 	id="main-container"
-	class="grid grid-cols-[100%] sm:grid-cols-[60%_40%] min-h-screen"
+	class="grid grid-cols-[100%] max-w-[80vw] sm:grid-cols-[60%_40%] min-h-screen"
 >
 	<div
 		id="left-col"
-		class="relative flex flex-col justify-between p-10 box-border"
+		class="relative flex flex-col justify-between sm:p-10 p-4 min-h-[56rem] sm:min-h-full box-border"
 	>
 		<header
-			class="flex justify-between items-center w-[90vw] text-sm font-medium text-white"
+			class="flex justify-between items-center sm:w-[90vw] text-sm font-medium text-white"
 		>
 			<button
 				class="flex items-center gap-2 cursor-pointer bg-none border-none text-background"
@@ -115,14 +109,16 @@
 				<span>Menu</span>
 			</button>
 			<div class="flex ml-4 space-x-4">
-				<a href="/" class="transition-opacity duration-300 opacity-100"
-					>ENG</a
+				<div
+					class="transition-opacity cursor-pointer hover:text-black duration-300 opacity-100"
 				>
-				<a
-					href="/"
-					class="transition-opacity duration-300 opacity-50 hover:opacity-100"
-					>FR</a
+					ENG
+				</div>
+				<div
+					class="transition-opacity cursor-pointer duration-300 hover:text-black opacity-50 hover:opacity-100"
 				>
+					FR
+				</div>
 			</div>
 		</header>
 
@@ -181,7 +177,7 @@
 	<!-- svelte-ignore a11y_mouse_events_have_key_events -->
 	<div
 		id="right-col"
-		class="grid grid-cols-[auto_1fr_auto] bg-white-rev grid-rows-[auto_auto_1fr_50px] gap-4 p-4"
+		class="grid grid-cols-[auto_1fr_auto] bg-[#f3efe9] grid-rows-[auto_auto_1fr_50px] gap-4 p-4"
 	>
 		<picture
 			class="swipeimage col-start-3 row-start-2 -ml-[45%] mt-[30%] translat e-y-[30%] max-w-[200px] shadow-lg shadow-black/10"
@@ -210,7 +206,7 @@
 		</div>
 
 		<div
-			class="col-start-3 row-start-3 text-center self-end border border-primary px-10 py-3 text-xs font-medium tracking-[0.1em] hover:bg-primary hover:text-background transition-all duration-300"
+			class="col-start-3 row-start-3 text-center self-end border border-primary px-10 py-3 text-xs font-medium tracking-[0.1em] cursor-pointer hover:bg-[#333] hover:text-white transition-all duration-300"
 		>
 			SHOP NOW
 		</div>
